@@ -5,7 +5,7 @@ var debug = function(message){
 }
 
 //gameplay variables
-var speed = 5000;
+var speed = 10000;
 var blockSize = 5;
 var blockColor = '#000000';
 
@@ -60,17 +60,20 @@ var move = function(direction){
   drawBlock(myX, myY);
   if(newDirection == 'l' && oldDirection != 'r'){
     myX-=blockSize;
+    oldDirection = newDirection;
   }
   else if(newDirection == 'r' && oldDirection != 'l' ){
     myX+=blockSize;
+    oldDirection = newDirection;
   }
   else if(newDirection == 'u' && oldDirection != 'd'){
     myY-=blockSize;
+    oldDirection = newDirection;
   }
   else if(newDirection == 'd' && oldDirection != 'u'){
     myY+=blockSize;
+    oldDirection = newDirection;
   }
-  oldDirection = newDirection;
   /*switch(direction){
     case 'l':
       myX-=blockSize;
@@ -100,7 +103,6 @@ window.addEventListener('keyup', function(event) {Key.onKeyup(event);}, false);
 window.addEventListener('keydown', function(event) {Key.onKeydown(event);}, false);
 
 setInterval(function(){
-  move(newDirection);
   watchKeys();
 }
 ,10);
@@ -109,3 +111,7 @@ setInterval(function(){
   move(newDirection);
 }
 ,speed);
+
+dale = new player("dog");
+scott = new player("fish");
+debug(player.population);

@@ -20,8 +20,5 @@ var Key = {
     delete this._pressed[event.keyCode];
   },
   
-    sayHi: function(event) {
-    debug("Hi!");
-  }
 };
 
